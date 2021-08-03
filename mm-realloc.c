@@ -22,6 +22,8 @@ void *mm_realloc(void *ptr, size_t size)
     size_t precedingTagUsed = blockInfo->sizeAndTags & TAG_PRECEDING_USED;
     //size_t tagUsed = blockInfo->sizeAndTags & TAG_USED;
     
+    //examine_heap();
+
     if(oldSize == size) // if oldsize and new size are the same, do nothing and return the pointer
         return UNSCALED_POINTER_ADD(blockInfo, WORD_SIZE);
     else if(oldSize > size) // if new size is less than oldsize, update the header, add the now free block into the freelist if >+ MIN_SIZE
