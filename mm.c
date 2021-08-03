@@ -412,24 +412,32 @@ void *mm_malloc(size_t size)
     ptrAllBlock = searchFreeList(reqSize);
   }
 
+
   blockSize = SIZE(ptrAllBlock->sizeAndTags);
   precedingBlockUseTag = ptrAllBlock->sizeAndTags & TAG_PRECEDING_USED;
+
   
   if((blockSize - reqSize) >= MIN_BLOCK_SIZE) {
     size_t freeBlockSize = blockSize - reqSize;
-    ptrFreeBlock = ptrAllBlock + reqSize;
+    ptrFreeBlock = UNSCALED_POINTER_ADD(ptrAllBlock, reqSize); //ptrAllBlock + reqSize;
     ptrFreeBlock->sizeAndTags = freeBlockSize | TAG_PRECEDING_USED;
-    (ptrFreeBlock + freeBlockSize - WORD_SIZE)->sizeAndTags = ptrFreeBlock->sizeAndTags;
+    ((BlockInfo *)UNSCALED_POINTER_SUB(UNSCALED_POINTER_ADD(ptrFreeBlock, freeBlockSize), WORD_SIZE))->sizeAndTags = ptrFreeBlock->sizeAndTags;//(ptrFreeBlock + freeBlockSize - WORD_SIZE)->sizeAndTags = ptrFreeBlock->sizeAndTags;
     insertFreeBlock(ptrFreeBlock);
     coalesceFreeBlock(ptrFreeBlock);
+    //examine_heap();
     ptrAllBlock->sizeAndTags = reqSize | precedingBlockUseTag | TAG_USED;
   }
   else {
-    ptrAllBlock->sizeAndTags = reqSize | precedingBlockUseTag | TAG_USED;
-    (ptrAllBlock + blockSize)->sizeAndTags |= TAG_PRECEDING_USED;
+    ptrAllBlock->sizeAndTags = blockSize | precedingBlockUseTag | TAG_USED; // should this be resize or blocksize?
+    ((BlockInfo *) UNSCALED_POINTER_ADD(ptrAllBlock, blockSize))->sizeAndTags |= TAG_PRECEDING_USED; //(ptrAllBlock + blockSize)->sizeAndTags |= TAG_PRECEDING_USED;
   }
+  removeFreeBlock(ptrAllBlock);
 
-return UNSCALED_POINTER_ADD(ptrAllBlock, WORD_SIZE);
+  //Do we remove the block? 
+
+
+
+  return UNSCALED_POINTER_ADD(ptrAllBlock, WORD_SIZE);
 
   // You will want to replace this return statement...
   //return NULL;
@@ -445,11 +453,18 @@ void mm_free(void *ptr)
   // TODO: Implement mm_free.  You can change or remove the declaraions
   // above.  They are included as minor hints.
 
-  ptr = (*BlockInfo) ptr; 
-  payloadSize = (ptr - WORD_SIZE)->sizeandTags;
+  blockInfo = (BlockInfo *) UNSCALED_POINTER_SUB(ptr, WORD_SIZE); //ptr - WORD_SIZE;
+  payloadSize = SIZE(blockInfo->sizeAndTags);
+  followingBlock = UNSCALED_POINTER_ADD(blockInfo, payloadSize);
+  //followingBlock = (BlockInfo *) UNSCALED_POINTER_ADD(ptr, payloadSize);//blockInfo + payloadSize;
+  
+  followingBlock->sizeAndTags ^= TAG_PRECEDING_USED;
+  blockInfo->sizeAndTags ^= TAG_USED;
+  ((BlockInfo*)UNSCALED_POINTER_SUB(followingBlock, WORD_SIZE))->sizeAndTags = blockInfo->sizeAndTags;
+  insertFreeBlock(blockInfo);
+  coalesceFreeBlock(blockInfo);
 
-
-
+  //examine_heap();
 
 }
 
