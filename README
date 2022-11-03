@@ -1,9 +1,9 @@
-# Heap-Simulator-in-C
-<p>Simulates the heap and has custom made functions for alloc() and realloc()</p>
+Heap-Simulator-in-C
+Simulates the heap and has custom made functions for alloc() and realloc()
 
-<p> This project was assigned by Arrvindh Shriman for CMPT295 (Introduction to Computer Systems) and some of the supporting files and test cases were 
+<This project was assigned by Arrvindh Shriman for CMPT295 (Introduction to Computer Systems) and some of the supporting files and test cases were 
 designed by the instructor, while I implemented most of the functionality for the heap. This project gave me a deeper understanding of memory manangement
-and improved my coding skills in C. </p>
+and improved my coding skills in C.
 
 
 
