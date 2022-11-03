@@ -1,0 +1,174 @@
+## ********************FAILED********************
+
+****************************************
+## ********************SUCCESS********************
+#### *****timeout 60 ./mdriver -V -f traces/amptjp-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/amptjp-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   89%    5694  0.000660    8631
+Total          89%    5694  0.000660    8631
+
+Perf index = 53 (util) + 40 (thru) = 93/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/cccp-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/cccp-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   92%    5848  0.000527   11105
+Total          92%    5848  0.000527   11105
+
+Perf index = 55 (util) + 40 (thru) = 95/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/cp-decl-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/cp-decl-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   94%    6648  0.001033    6438
+Total          94%    6648  0.001033    6438
+
+Perf index = 57 (util) + 40 (thru) = 97/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/expr-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/expr-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   96%    5380  0.000743    7241
+Total          96%    5380  0.000743    7241
+
+Perf index = 58 (util) + 40 (thru) = 98/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/coalescing-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/coalescing-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   99%   14400  0.000719   20031
+Total          99%   14400  0.000719   20031
+
+Perf index = 60 (util) + 40 (thru) = 100/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/random-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/random-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   87%    4800  0.001036    4635
+Total          87%    4800  0.001036    4635
+
+Perf index = 52 (util) + 40 (thru) = 92/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/random2-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/random2-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   84%    4800  0.001227    3911
+Total          84%    4800  0.001227    3911
+
+Perf index = 50 (util) + 40 (thru) = 90/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/binary-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/binary-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   55%   12000  0.009035    1328
+Total          55%   12000  0.009035    1328
+
+Perf index = 33 (util) + 30 (thru) = 62/100
+
+```
+#### *****timeout 60 ./mdriver -V -f traces/binary-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/binary-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs    Kops
+ 0       yes   55%   12000  0.006204    1934
+Total          55%   12000  0.006204    1934
+
+Perf index = 33 (util) + 40 (thru) = 73/100
+
+```
+#### *****timeout 60 ./mdriver-realloc -V -f traces/short-malloc_realloc.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/short-malloc_realloc.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs  Kops
+ 0       yes   25%       6  0.000017   345
+Total          25%       6  0.000017   345
+
+Perf index = 15 (util) + 8 (thru) = 23/100
+
+```
+#### *****timeout 60 ./mdriver-realloc -V -f traces/realloc-bal.rep*****
+ ```Measuring performance with the interval timer.
+
+Testing mm malloc
+Reading tracefile: traces/realloc-bal.rep
+Checking mm_malloc for correctness, efficiency, and performance.
+
+Results for mm malloc:
+trace  valid  util     ops      secs  Kops
+ 0       yes   49%   14401  0.169184    85
+Total          49%   14401  0.169184    85
+
+Perf index = 29 (util) + 2 (thru) = 31/100
+
+```
+#### *****timeout 60 ./mdriver*****
+ ```Using default tracefiles in traces/
+Perf index = 50 (util) + 40 (thru) = 90/100
+
+```
